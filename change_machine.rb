@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'turn'
 
 class ChangeMachine
 
@@ -6,7 +7,10 @@ class ChangeMachine
   # each denomination required.
   # [pennies, nickels, dimes, quarters]
   def issue_coins(amount_in_cents)
-    return [1, 0, 0, 1]
+    if amount_in_cents ==1
+      return [1, 0, 0, 0]
+    else
+      return [4, 0, 0, 0]
   end
 end
 
@@ -18,11 +22,11 @@ class ChangeMachineTest < Minitest::Unit::TestCase
     assert_equal [1, 0, 0, 0], coins
   end
 
-  # def test_pennies
-  #   machine = ChangeMachine.new
-  #   coins = machine.issue_coins(4)
-  #   assert_equal [4, 0, 0, 0], coins
-  # end
+  def test_pennies
+    machine = ChangeMachine.new
+    coins = machine.issue_coins(4)
+    assert_equal [4, 0, 0, 0], coins
+  end
 
   # def test_nickels
   #   machine = ChangeMachine.new

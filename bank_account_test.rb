@@ -38,5 +38,12 @@ class BankAccountTest < Minitest::Unit::TestCase
     assert_equal 300, savings.balance
   end
 
+  def test_overdrawn
+    account = BankAccount.new(100)
+    account.withdrawal(300)
+    assert_equal 100, account.balance
+  end
+
+
 end
 

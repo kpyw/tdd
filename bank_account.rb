@@ -10,12 +10,15 @@ class BankAccount
   end
 
   def withdrawal (amount)
-    @balance -= amount
+
+    @balance -= amount if @balance >= amount
+
   end
 
   def transfer_to (other_account, amount)
     other_account.deposit(amount)
-    @balance -= amount
+    # @balance -= amount [ this works but could refactor to next line]
+    self.withdrawal(amount)
   end
 
   def balance

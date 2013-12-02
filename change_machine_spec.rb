@@ -1,3 +1,5 @@
+# rspec.info website describes the documentation to do this type of testing in ruby
+
 require 'minitest/autorun'
 
 class ChangeMachine
@@ -12,11 +14,11 @@ end
 
 describe ChangeMachine do
 
-  # it "should return one penny" do
-  #   machine = ChangeMachine.new
-  #   coins = machine.issue_coins(1)
-  #   coins.must_equal [1,0,0,0]
-  # end
+  it "should return one penny" do
+    machine = ChangeMachine.new
+    coins = machine.issue_coins(1)
+    coins.must_equal [1,0,0,0]
+  end
 
   # it "should return many pennies" do
   #   machine = ChangeMachine.new
